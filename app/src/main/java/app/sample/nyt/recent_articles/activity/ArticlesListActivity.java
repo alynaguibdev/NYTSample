@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Calendar;
 import java.util.List;
 
 import app.sample.nyt.R;
@@ -63,7 +64,7 @@ public class ArticlesListActivity extends MyActivity<RecentArticlesPresenter> {
         recyclerView = findViewById(R.id.item_list);
         assert recyclerView != null;
 
-        getPresenter().loadRecentArticles(1);
+        getPresenter().loadRecentArticles(7);
     }
 
     public void setupRecyclerView(List<Result> items) {
@@ -118,7 +119,11 @@ public class ArticlesListActivity extends MyActivity<RecentArticlesPresenter> {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.titleView.setText(mValues.get(position).getTitle());
             holder.byLineView.setText(mValues.get(position).getByline());
-            holder.dateView.setText(mValues.get(position).getPublishedDate());
+            String tDate = mValues.get(position).getPublishedDate();
+            if (tDate == null) {
+                tDate = Calendar.getInstance().getTime().toString();
+            }
+            holder.dateView.setText(tDate);
             holder.itemView.setTag(mValues.get(position));
             holder.itemView.setOnClickListener(mOnClickListener);
             try {
