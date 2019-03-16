@@ -1,4 +1,4 @@
-package app.sample.nyt.network.response.most_recent_article;
+package app.sample.nyt.network.most_recent_articles.response;
 
 import java.io.Serializable;
 
@@ -6,8 +6,8 @@ public class MediaMetadatum implements Serializable {
 
     private String url;
     private String format;
-    private Integer height;
-    private Integer width;
+    private String height;
+    private String width;
     private final static long serialVersionUID = 5281974450354571261L;
 
     public String getUrl() {
@@ -26,19 +26,19 @@ public class MediaMetadatum implements Serializable {
         this.format = format;
     }
 
-    public Integer getHeight() {
+    public String getHeight() {
         return height;
     }
 
-    public void setHeight(Integer height) {
+    public void setHeight(String height) {
         this.height = height;
     }
 
-    public Integer getWidth() {
+    public String getWidth() {
         return width;
     }
 
-    public void setWidth(Integer width) {
+    public void setWidth(String width) {
         this.width = width;
     }
 

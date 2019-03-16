@@ -1,5 +1,7 @@
 package app.sample.nyt.network;
 
+import okhttp3.MediaType;
+
 public class NetworkConstants {
 
     public static final String API_KEY = "EQzLdbTA6ztaZBTsbj062SpnndaacKpe";
@@ -9,4 +11,6 @@ public class NetworkConstants {
     public static final String MOST_RECENT_URL = "/svc/mostpopular/v2/viewed/{period}.json";
     public static final String KEY_PERIOD = "{period}";
     public static final String KEY_API_KEY = "api-key";
+    public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
 }

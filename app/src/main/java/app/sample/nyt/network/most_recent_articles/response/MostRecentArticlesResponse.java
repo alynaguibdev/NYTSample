@@ -1,4 +1,4 @@
-package app.sample.nyt.network.response.most_recent_article;
+package app.sample.nyt.network.most_recent_articles.response;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ public class MostRecentArticlesResponse implements Serializable {
 
     private String status;
     private String copyright;
-    private Integer numResults;
+    private String numResults;
     private List<Result> results = null;
     private final static long serialVersionUID = 7391641082393878589L;
 
@@ -27,11 +27,11 @@ public class MostRecentArticlesResponse implements Serializable {
         this.copyright = copyright;
     }
 
-    public Integer getNumResults() {
+    public String getNumResults() {
         return numResults;
     }
 
-    public void setNumResults(Integer numResults) {
+    public void setNumResults(String numResults) {
         this.numResults = numResults;
     }
 

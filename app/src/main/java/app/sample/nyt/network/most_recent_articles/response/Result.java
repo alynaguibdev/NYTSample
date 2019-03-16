@@ -1,4 +1,4 @@
-package app.sample.nyt.network.response.most_recent_article;
+package app.sample.nyt.network.most_recent_articles.response;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,9 +15,9 @@ public class Result implements Serializable {
     private String _abstract;
     private String publishedDate;
     private String source;
-    private Integer id;
-    private Integer assetId;
-    private Integer views;
+    private String id;
+    private String assetId;
+    private String views;
     private List<String> desFacet = null;
     private List<String> orgFacet = null;
     private String perFacet;
@@ -106,27 +106,27 @@ public class Result implements Serializable {
         this.source = source;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Integer getAssetId() {
+    public String getAssetId() {
         return assetId;
     }
 
-    public void setAssetId(Integer assetId) {
+    public void setAssetId(String assetId) {
         this.assetId = assetId;
     }
 
-    public Integer getViews() {
+    public String getViews() {
         return views;
     }
 
-    public void setViews(Integer views) {
+    public void setViews(String views) {
         this.views = views;
     }
 

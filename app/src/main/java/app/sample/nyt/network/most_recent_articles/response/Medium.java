@@ -1,4 +1,4 @@
-package app.sample.nyt.network.response.most_recent_article;
+package app.sample.nyt.network.most_recent_articles.response;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,7 +9,7 @@ public class Medium implements Serializable {
     private String subtype;
     private String caption;
     private String copyright;
-    private Integer approvedForSyndication;
+    private String approvedForSyndication;
     private List<MediaMetadatum> mediaMetadata = null;
     private final static long serialVersionUID = 8692208613129630142L;
 
@@ -45,11 +45,11 @@ public class Medium implements Serializable {
         this.copyright = copyright;
     }
 
-    public Integer getApprovedForSyndication() {
+    public String getApprovedForSyndication() {
         return approvedForSyndication;
     }
 
-    public void setApprovedForSyndication(Integer approvedForSyndication) {
+    public void setApprovedForSyndication(String approvedForSyndication) {
         this.approvedForSyndication = approvedForSyndication;
     }
 

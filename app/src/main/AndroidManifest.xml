@@ -29,5 +29,6 @@
                 android:value="app.sample.nyt.recent_articles.activity.ArticlesListActivity" />
         </activity>
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

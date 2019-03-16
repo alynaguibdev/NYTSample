@@ -8,16 +8,13 @@ public abstract class MyPresenter<V extends MyView> {
 
     private WeakReference<V> viewWeakReference;
 
-    public MyPresenter() {
-    }
-
-    private WeakReference<V> getFWeakReference() {
+    private WeakReference<V> getViewWeakReference() {
         return viewWeakReference;
     }
 
     protected V getView() {
         if (isViewAttached()) {
-            return getFWeakReference().get();
+            return getViewWeakReference().get();
         }
         return null;
     }
@@ -27,14 +24,14 @@ public abstract class MyPresenter<V extends MyView> {
     }
 
     public void detachView() {
-        if (getFWeakReference() != null) {
-            getFWeakReference().clear();
+        if (getViewWeakReference() != null) {
+            getViewWeakReference().clear();
             setViewWeakReference(null);
         }
     }
 
     protected boolean isViewAttached() {
-        return getFWeakReference() != null && getFWeakReference().get() != null;
+        return getViewWeakReference() != null && getViewWeakReference().get() != null;
     }
 
     private void setViewWeakReference(WeakReference<V> viewWeakReference) {

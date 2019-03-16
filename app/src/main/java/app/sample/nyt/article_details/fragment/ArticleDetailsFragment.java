@@ -8,7 +8,8 @@ import app.sample.nyt.R;
 import app.sample.nyt.article_details.activity.ArticleDetailsActivity;
 import app.sample.nyt.article_details.presenter.ArticleDetailsPresenter;
 import app.sample.nyt.base.fragment.MyFragment;
-import app.sample.nyt.dummy.DummyContent;
+import app.sample.nyt.base.presenter.MyPresenter;
+import app.sample.nyt.network.most_recent_articles.response.Result;
 import app.sample.nyt.recent_articles.activity.ArticlesListActivity;
 
 /**
@@ -19,15 +20,15 @@ import app.sample.nyt.recent_articles.activity.ArticlesListActivity;
  */
 public class ArticleDetailsFragment extends MyFragment<ArticleDetailsPresenter> {
     /**
-     * The fragment argument representing the article ID that this fragment
+     * The fragment argument representing the article that this fragment
      * represents.
      */
-    public static final String ARG_ARTICLE_ID = "article_id";
+    public static final String ARG_ARTICLE = "article";
 
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Result mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -40,16 +41,13 @@ public class ArticleDetailsFragment extends MyFragment<ArticleDetailsPresenter> 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ARTICLE_ID)) {
-            // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ARTICLE_ID));
+        if (getArguments().containsKey(ARG_ARTICLE)) {
+            mItem = (Result) getArguments().getSerializable(ARG_ARTICLE);
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.getTitle());
             }
         }
     }
@@ -64,4 +62,8 @@ public class ArticleDetailsFragment extends MyFragment<ArticleDetailsPresenter> 
         return R.layout.item_detail;
     }
 
+    @Override
+    public ArticleDetailsPresenter getPresenter() {
+        return presenter;
+    }
 }
