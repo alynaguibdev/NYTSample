@@ -1,6 +1,7 @@
 # NYTSample
 This is a simple app to hit the NY Times Most Popular Articles API and show a list of articles, that shows details when items on the list are tapped (a typical master/detail app)
 # To build the project:
+```
 1- Install Android Studio.
 2- Open it.
 3- From VCS -> Checkout from Version Control -> Git.
@@ -9,3 +10,4 @@ This is a simple app to hit the NY Times Most Popular Articles API and show a li
 6- Wait for the project to be indexed and initialized on Android Studio.
 7- Connect your debugging device.
 8- Click on play icon to build/ run the project.
+```
